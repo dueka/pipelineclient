@@ -1,0 +1,10 @@
+@use './base';
+@use './abstracts/helpers';
+
+@use "./pages/candidates";
+
+// Dashboard Sidebar
+@use "./components/user-menu";
+
+/*******Dashboard Layout*******/
+@use "./components/dashboard-header";

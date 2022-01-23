@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { UserHeader, UserMenu } from "./components";
+import { ApolloProjects } from "./pages/projects";
+import ScrollToTop from "./ScrollToTop";
 
-function App() {
+import "./scss/main.scss";
+
+// const query = gql`
+//   query Candidates {
+//     candidates @rest(type: "body", path: "/") {
+//       body
+//     }
+//   }
+// `;
+
+// client.query({ query }).then((response) => {
+//   // console.log(response.data.candidates);
+// });
+
+const App: React.FC = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ScrollToTop>
+        <UserMenu />
+        <UserHeader />
+        <Switch>
+          <Route path="/" component={ApolloProjects} />
+        </Switch>
+      </ScrollToTop>
+    </>
   );
-}
+};
 
 export default App;

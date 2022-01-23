@@ -1,0 +1,105 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/colors' as c;
+@use '../base/typography';
+
+.dashboard {
+  width: calc(100vw - 252px);
+  margin-left: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  @include m.respond(phone-wide) {
+    width: auto;
+    padding-top: 4rem;
+  }
+  &-column {
+    display: flex;
+    height: 4rem;
+    background-color: white;
+    border-bottom: 1px solid c.color(border);
+    flex-direction: row;
+    @include m.respond(phone-wide) {
+      height: auto;
+      padding-top: 0.3rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &__header {
+    padding: 22px 30px;
+    @include m.respond(phone-wide) {
+      padding: 0px 30px;
+    }
+  }
+
+  &__left {
+    padding-left: calc(100vw - 42rem);
+    padding-top: 1.2rem;
+
+    svg {
+      width: 0.9rem;
+      fill: c.color(field);
+      stroke: c.color(field);
+
+      &:hover {
+        fill: c.color(primary);
+        stroke: c.color(primary);
+      }
+    }
+  }
+
+  &__right {
+    width: 10rem;
+    position: absolute;
+    margin-left: calc(100vw - 25rem);
+    @include m.respond(phone-wide) {
+      position: relative;
+    }
+
+    &-tooltip {
+      padding: 5px !important;
+      font-size: 0.7em !important;
+      font-weight: bolder !important;
+    }
+
+    &-circle {
+      width: 30px;
+      border-radius: 50%;
+    }
+
+    &-text-1 {
+      position: absolute;
+      padding-top: 0.4rem;
+      top: 0;
+      left: 0;
+    }
+    &-text-2 {
+      position: absolute;
+      padding-top: 0.9rem;
+      left: 0;
+    }
+    &-text-3 {
+      position: absolute;
+      padding-top: 0.8rem;
+      padding-left: 5.5rem;
+    }
+  }
+
+  &__menu {
+    &-toggler {
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+      min-width: 24px;
+      font-size: 1.09375rem;
+      background-color: transparent;
+      border: 0;
+      border-radius: 0.25rem;
+
+      @include m.respond(tablet-wide, min) {
+        // display: none;
+      }
+    }
+  }
+}
